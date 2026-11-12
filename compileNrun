@@ -1,4 +1,5 @@
 #!/bin/bash
-rm -f main
-g++ -std=c++23 -Iinclude src/*.cpp -o main
-./main
+rm -rf test
+mkdir test/ 
+g++ -std=c++23 -Iinclude src/*.cpp -o test/main
+(cd test && ./main)
