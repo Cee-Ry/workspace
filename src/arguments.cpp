@@ -9,11 +9,14 @@ using namespace std;
 namespace fs = std::filesystem;
 
 void noArgument() { // if No Argument is added
+  const uint MAX_OPTION {3};
+  string options[MAX_OPTION] {"C++", "HTML", "Exit"};
   int choosen {};
+
   println("No Arguments Found");
   println("Select Workspace: ");
-  println("1. C++");
-  println("2. HTML");
+  for (int i {}; i < MAX_OPTION; i++) 
+    println("{}. {}", i+1, options[i]);
 
   print("\nInput: ");
   while (cin >> choosen) {
@@ -26,7 +29,11 @@ void noArgument() { // if No Argument is added
       // html();
       println("Done!");
     } 
-    else {
+
+    else if (choosen == MAX_OPTION) {
+      println("Exited");
+      exit(0);
+    } else {
       cin.clear();
       cin.ignore(10000, '\n');
       println("{} is not in the Options", choosen);
